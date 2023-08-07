@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginHorizontal="30dp">
 
         <TextView
@@ -21,7 +21,7 @@
             android:layout_marginTop="10dp"
             android:text="Hi, John Doe"
             android:textSize="25sp"/>
-        
+
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -40,44 +40,53 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="15dp"
-        android:orientation="vertical"
+        android:scrollbars="none"
         android:paddingTop="30dp"
         android:paddingHorizontal="30dp"
         android:background="@drawable/container_background">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Today's"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            tools:itemCount="2"
-            tools:listitem="@layout/card_view_todays_todo"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Upcoming"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            tools:itemCount="2"
-            tools:listitem="@layout/card_view_upcoming_todo"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/todaysRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="195dp"
+                android:layout_marginTop="10dp"
+                tools:itemCount="2"
+                tools:listitem="@layout/card_view_todays_todo"/>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Upcoming"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/upcomingRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                tools:itemCount="2"
+                tools:listitem="@layout/card_view_upcoming_todo"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

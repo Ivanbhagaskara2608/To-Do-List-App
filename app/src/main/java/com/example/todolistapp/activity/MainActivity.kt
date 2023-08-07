@@ -18,8 +18,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        SET HOME FRAGMENT AS DEFAULT
         setFragment(HomeFragment())
 
+//        SET BOTTOM NAV LISTENER
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.homeNavigation -> {
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+//        SET EVENT ON ADD TODO BUTTON
         binding.addTodoButton.setOnClickListener {
             val intent = Intent(this, AddToDoActivity::class.java)
             startActivity(intent)
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+//    FUNCTION TO REPLACE FRAGMENT
     private fun  setFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
